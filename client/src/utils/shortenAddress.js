@@ -1,1 +1,1 @@
-export const shortenAddress = address => `${address.substring(0, 5)}...${address.substring(address.length - 4)}`;
+export const shortenAddress = address => address?.length ? `${address.substring(0, 5)}...${address.substring(address.length - 4)}` : '';
