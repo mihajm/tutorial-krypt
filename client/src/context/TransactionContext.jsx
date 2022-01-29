@@ -145,10 +145,13 @@ export const TransactionProvider = ({children}) => {
 	ethereum.on('accountsChanged', async accounts => {
 		if (!accounts.length) {
 			setCurrentAccount(null);
+			setTransactions([]);
+		} else {
+			check();
 		}
 	});
 
-	useEffect(() => check(), [currentAccount]);
+	useEffect(() => check(), []);
 
 	return (
 		<TransactionContext.Provider value={{connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction, isLoading, transactions, transactionCount}}>
