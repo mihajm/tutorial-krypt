@@ -145,6 +145,8 @@ export const TransactionProvider = ({children}) => {
 	ethereum.on('accountsChanged', async accounts => {
 		if (!accounts.length) {
 			setCurrentAccount(null);
+		} else {
+			check();
 		}
 	});
 
